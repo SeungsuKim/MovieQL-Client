@@ -4,18 +4,21 @@ import { ApolloProvider } from "react-apollo";
 import client from "./apolloClient";
 import Home from "./Home";
 import Detail from "./Detail";
+import globalStyle from "./globalStyles";
 
 class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <Router>
-          <main>
-            <Route exact={true} path={"/"} component={Home} />
-            <Route path={"/details/:movieId"} component={Detail} />
-          </main>
-        </Router>
-      </ApolloProvider>
+        <globalStyle>
+          <Router>
+            <main>
+              <Route exact={true} path={"/"} component={Home} />
+              <Route path={"/details/:movieId"} component={Detail} />
+            </main>
+          </Router >
+        </globalStyle>
+      </ApolloProvider >
     );
   }
 }
